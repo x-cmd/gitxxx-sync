@@ -3,7 +3,7 @@ repo_sync(){
     local repo="$1"
     local rp
     rp="$(x wsroot)/.tmp"
-    x mkdirp "$rp"
+    mkdir -p "$rp"
     (
         cd "$rp" || exit 1
         git clone "git@gitee.com:x-bash/${repo}.git"
@@ -20,7 +20,7 @@ repo_sync(){
 }
 
 repo()(
-    x mkdirp "$(x wsroot)/.tmp"
+    mkdir -p "$(x wsroot)/.tmp"
 
     local parallel="${1:-7}";   x:info "Concurrency: ${parallel}"
 
