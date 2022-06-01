@@ -24,7 +24,7 @@ repo()(
     #     x job put "${1:-7}" repo_sync "$repo"
     # done
 
-    curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist | ___x_cmd_yanfa_mod_ls_awk_ | while read -r repo; do
+    curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist | ___x_cmd_yanfa_mod_ls_awk_ all | while read -r repo; do
         x job put "${1:-7}" repo_sync "$repo"
     done
 
@@ -43,4 +43,4 @@ ___x_cmd_yanfa_mod_ls_awk_(){
 }'
 }
 
-repo 5
+repo 10
