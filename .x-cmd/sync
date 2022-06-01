@@ -23,16 +23,16 @@ repo()(
     #     x job put "${1:-7}" repo_sync "$repo"
     # done
 
-    local parralel="${1:-7}";   x:info "Concurrency: ${parralel}"
+    local parallel="${1:-7}";   x:info "Concurrency: ${parallel}"
 
     curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist | ___x_cmd_yanfa_mod_ls_awk_ all | {
         local reponum
         local repo; while read -r repo; do
-            x job put "$parralel" repo_sync "$repo"
+            x job put "$parallel" repo_sync "$repo"
             reponum=$((reponum+1))
         done
         x job wait
-        x:info "Repo Number: ${reponum}. Concurrency: $parralel"
+        x:info "Repo Number: ${reponum}. Concurrency: $parallel"
     }
     x rmrf "$(x wsroot)/.tmp"
 )
