@@ -1,7 +1,7 @@
 
 repo_push(){
     local name="${1:?Provide name}"
-    local url="$url"
+    local url="${2:?Provide url}"
     git remote remove "$name" 2>/dev/null || true; git remote add "$name" "$url"
     if ! git push -u "$name" --all; then
         x:warn "Push In Force: git push -u -f $name --all"
