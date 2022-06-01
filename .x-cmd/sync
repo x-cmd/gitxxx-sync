@@ -24,9 +24,14 @@ repo()(
     #     x job put "${1:-7}" repo_sync "$repo"
     # done
 
-    curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist | ___x_cmd_yanfa_mod_ls_awk_ all | while read -r repo; do
-        x job put "${1:-7}" repo_sync "$repo"
-    done
+    curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist | ___x_cmd_yanfa_mod_ls_awk_ all | {
+        local reponum
+        while read -r repo; do
+            x job put "${1:-7}" repo_sync "$repo"
+            reponum=$((reponum+1))
+        done
+        x:info "Repo Number: ${reponum}"
+    }
 
     x job wait
     x rmrf "$(x wsroot)/.tmp"
