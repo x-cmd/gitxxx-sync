@@ -1,8 +1,9 @@
 
-repo(){
+repo()(
     x mkdirp "$(x wsroot)/.tmp"
     local repo
-    x yanfa mod ls | while read -r repo; do
+    cd "$(x wsroot)/.tmp"
+    x yanfa mod ls | while read -r repo; do (
         git clone "git@gitee.com:x-bash/${repo}.git"
         cd "$(x wsroot)/.tmp/${repo}" || exit
 
@@ -12,9 +13,9 @@ repo(){
         git push github
 
         # TODO: Add GitLab And GitCode
-    done
+    ) done
 
     x rmrf "$(x wsroot)/.tmp"
-}
+)
 
 repo
