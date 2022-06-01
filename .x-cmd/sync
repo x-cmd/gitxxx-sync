@@ -1,8 +1,11 @@
 
 repo_sync(){
     local repo="$1"
+    local rp
+    rp="$(x wsroot)/.tmp"
+    x mkdirp "$rp"
     (
-        cd "$(x wsroot)/.tmp"
+        cd "$rp" || exit 1
         git clone "git@gitee.com:x-bash/${repo}.git"
         cd "${repo}" || exit
 
@@ -12,7 +15,7 @@ repo_sync(){
         git push github
 
         # TODO: Add GitLab And GitCode
-    ) 1>"$(x wsroot)/.tmp/.${repo}.stdout" 2>"$(x wsroot)/.tmp/.${repo}.stderr"
+    ) 1>"$rp/.${repo}.stdout" 2>"$rp/.${repo}.stderr"
     x:info "Sync to github: ${repo}"
 }
 
