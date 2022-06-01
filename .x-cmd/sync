@@ -1,5 +1,6 @@
 
 repo_sync(){
+    local repo="$1"
     (
         cd "$(x wsroot)/.tmp"
         git clone "git@gitee.com:x-bash/${repo}.git"
@@ -20,7 +21,6 @@ repo()(
     local repo
     x yanfa mod ls | while read -r repo; do
         x job put "${1:-7}" repo_sync "$repo"
-
     done
 
     x job wait
