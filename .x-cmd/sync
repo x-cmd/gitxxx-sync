@@ -21,7 +21,7 @@ repo()(
 
     local parallel="${1:-7}";   x:info "Concurrency: ${parallel}"
 
-    x yanfa mod ls | ___x_cmd_yanfa_mod_ls_awk_ all | {
+    x yanfa mod ls | {
         local reponum
         local repo; while read -r repo; do
             x job put "$parallel" repo_sync "$repo"
