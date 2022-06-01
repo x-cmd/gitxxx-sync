@@ -18,19 +18,21 @@ repo_sync(){
 
 repo()(
     x mkdirp "$(x wsroot)/.tmp"
-    local repo
+
 
     # x yanfa mod ls | while read -r repo; do
     #     x job put "${1:-7}" repo_sync "$repo"
     # done
 
+    local parralel="${1:-7}";   x:info "Concurrency: ${parralel}"
+
     curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist | ___x_cmd_yanfa_mod_ls_awk_ all | {
         local reponum
-        while read -r repo; do
-            x job put "${1:-7}" repo_sync "$repo"
+        local repo; while read -r repo; do
+            x job put "$parralel" repo_sync "$repo"
             reponum=$((reponum+1))
         done
-        x:info "Repo Number: ${reponum}"
+        x:info "Repo Number: ${reponum}. Concurrency: $parralel"
     }
 
     x job wait
