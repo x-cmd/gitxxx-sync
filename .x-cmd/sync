@@ -22,6 +22,8 @@ repo()(
     # x yanfa mod ls | while read -r repo; do
     #     x job put "${1:-7}" repo_sync "$repo"
     # done
+
+    curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist
     x yanfa mod ls
 
     # x job wait
