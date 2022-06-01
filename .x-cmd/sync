@@ -25,6 +25,8 @@ repo()(
 
     xrc mirror
 
+    ___x_cmd_httpget_gitx_official modlist
+
     # local parallel="${1:-7}";   x:info "Concurrency: ${parallel}"
 
     # curl https://raw.githubusercontent.com/x-cmd/x-cmd/main/modlist | ___x_cmd_yanfa_mod_ls_awk_ all | {
