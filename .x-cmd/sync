@@ -28,7 +28,7 @@ repo_sync(){
         # repo_push github "git@gitlab.com:x-bash/${repo}.git"
         # repo_push github "git@gitcode.com:x-bash/${repo}.git"
 
-    ) 1>"$rp/.${repo}.stdout" 2>"$rp/.${repo}.stderr"
+    ) 1>"$rp/.${repo}.stdout"
     x:info "Sync to github: ${repo}"
 }
 
