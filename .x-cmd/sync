@@ -1,11 +1,9 @@
 
-repo()(
-    x mkdirp "$(x wsroot)/.tmp"
-    local repo
-    cd "$(x wsroot)/.tmp"
-    x yanfa mod ls | while read -r repo; do (
+repo_sync(){
+    (
+        cd "$(x wsroot)/.tmp"
         git clone "git@gitee.com:x-bash/${repo}.git"
-        cd "$(x wsroot)/.tmp/${repo}" || exit
+        cd "${repo}" || exit
 
         # TODO: Need to do more
         git remote remove github 2>/dev/null
@@ -13,9 +11,20 @@ repo()(
         git push github
 
         # TODO: Add GitLab And GitCode
-    ) done
+    ) 1>"$(x wsroot)/.tmp/.${repo}.stdout" 2>"$(x wsroot)/.tmp/.${repo}.stderr"
+    x:info "Sync to github: ${repo}"
+}
 
+repo()(
+    x mkdirp "$(x wsroot)/.tmp"
+    local repo
+    x yanfa mod ls | while read -r repo; do
+        x job put "${1:-7}" repo_sync "$repo"
+
+    done
+
+    x job wait
     x rmrf "$(x wsroot)/.tmp"
 )
 
-repo
+repo 5
