@@ -48,4 +48,4 @@ ___x_cmd_yanfa_mod_ls_awk_(){
 }'
 }
 
-repo 10
+repo "${CONCURRENCY:-10}"
