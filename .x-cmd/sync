@@ -19,7 +19,6 @@ repo_sync(){
 repo()(
     x mkdirp "$(x wsroot)/.tmp"
 
-
     # x yanfa mod ls | while read -r repo; do
     #     x job put "${1:-7}" repo_sync "$repo"
     # done
@@ -32,10 +31,9 @@ repo()(
             x job put "$parralel" repo_sync "$repo"
             reponum=$((reponum+1))
         done
+        x job wait
         x:info "Repo Number: ${reponum}. Concurrency: $parralel"
     }
-
-    x job wait
     x rmrf "$(x wsroot)/.tmp"
 )
 
