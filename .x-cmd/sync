@@ -1,4 +1,19 @@
 
+repo_push(){
+    local name="${1:?Provide name}"
+    local url="$url"
+    git remote remove "$name" 2>/dev/null || true; git remote add "$name" "$url"
+    if ! git push -u "$name" --all; then
+        x:warn "Push In Force: git push -u -f $name --all"
+        git push -u -f "$name" --all
+    fi
+
+    if ! git push -u "$name" --tags; then
+        x:warn "Push In Force: git push -u -f $name --tags"
+        git push -u -f "$name" --tags
+    fi
+}
+
 repo_sync(){
     local repo="$1"
     local rp
@@ -9,12 +24,10 @@ repo_sync(){
         git clone "git@gitee.com:x-bash/${repo}.git"
         cd "${repo}" || exit
 
-        # TODO: Need to do more
-        git remote remove github 2>/dev/null
-        git remote add github "git@github.com:x-bash/${repo}.git"
-        git push github
+        repo_push github "git@github.com:x-bash/${repo}.git"
+        # repo_push github "git@gitlab.com:x-bash/${repo}.git"
+        # repo_push github "git@gitcode.com:x-bash/${repo}.git"
 
-        # TODO: Add GitLab And GitCode
     ) 1>"$rp/.${repo}.stdout" 2>"$rp/.${repo}.stderr"
     x:info "Sync to github: ${repo}"
 }
