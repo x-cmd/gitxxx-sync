@@ -1,6 +1,6 @@
 
 repo(){
-    x mkdir -p "$(x wsroot)/.tmp"
+    x mkdirp "$(x wsroot)/.tmp"
     local repo
     x yanfa mod ls | while read -r repo; do
         git clone "git@gitee.com:x-bash/${repo}.git"
