@@ -1,9 +1,8 @@
 name: Sync All Git Hosting Service
 on:
-  push:
   workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 */2 * * *'
 
 jobs:
   publisher:
