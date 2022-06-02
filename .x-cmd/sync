@@ -26,8 +26,18 @@ repo_push(){
     if git branch -r | grep -q ^; then      # to prevent sync the empty repository
         git fetch origin
         git pull origin
-        git push -u --all tgt
-        git push --force --tags tgt
+        # git push -u --all "$name"
+        # git push --force --tags tgt
+
+        if ! git push -u "$name" --all; then
+            x:warn "Push In Force: git push -u -f $name --all"
+            git push -u -f "$name" --all
+        fi
+
+        if ! git push -u "$name" --tags; then
+            x:warn "Push In Force: git push -u -f $name --tags"
+            git push -u -f "$name" --tags
+        fi
     fi
 }
 
