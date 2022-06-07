@@ -11,9 +11,10 @@ jobs:
       ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
       git_user: agent-zero
       git_email: 0@x-cmd.com
-      CONCURRENCY: 15
+      CONCURRENCY: 10
     steps:
       - name: main
         uses: x-cmd/action@main
+        timeout-minutes: 8
         with:
           code: xws sync || exit
