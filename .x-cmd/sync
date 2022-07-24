@@ -37,8 +37,8 @@ repo_sync(){
         cd "${repo}" || exit
 
         repo_push github "git@github.com:x-bash/${repo}.git"
-        # repo_push github "git@gitlab.com:x-bash/${repo}.git"
-        # repo_push github "git@gitcode.com:x-bash/${repo}.git"
+        # repo_push gitlab "git@gitlab.com:x-bash/${repo}.git"
+        # repo_push gitcode "git@gitcode.com:x-bash/${repo}.git"
 
     ) 1>"$rp/.${repo}.stdout"
     x:info "Sync to github: ${repo}"
