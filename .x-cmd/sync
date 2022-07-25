@@ -1,44 +1,18 @@
 
-repo_push(){
-    local name="${1:?Provide name}"
-    local url="${2:?Provide url}"
-    git branch -r | grep -v '\->' | grep -E "^ +origin" | \
-        while read -r remote; do
-            git branch --track "${remote#origin/}" "$remote";
-        done
-
-    git remote remove "$name" >&2;  git remote add "$name" "$url"
-    if git branch -r | grep -q ^; then      # to prevent sync the empty repository
-        git fetch origin
-        git pull origin
-        # git push -u --all "$name"
-        # git push --force --tags tgt
-
-        if ! git push -u "$name" --all; then
-            x:warn "Push In Force: git push -u -f $name --all"
-            git push -u -f "$name" --all
-        fi
-
-        if ! git push -u "$name" --tags; then
-            x:warn "Push In Force: git push -u -f $name --tags"
-            git push -u -f "$name" --tags
-        fi
-    fi
-}
 
 repo_sync(){
     local repo="$1"
     local rp
     rp="$(x wsroot)/.tmp"
-    mkdir -p "$rp"
+    x mkdirp "$rp"
     (
         cd "$rp" || exit 1
         git clone "git@gitee.com:x-bash/${repo}.git"
         cd "${repo}" || exit
 
-        repo_push github "git@github.com:x-bash/${repo}.git"
-        # repo_push gitlab "git@gitlab.com:x-bash/${repo}.git"
-        # repo_push gitcode "git@gitcode.com:x-bash/${repo}.git"
+        x git pushall github "git@github.com:x-bash/${repo}.git"
+        # x git pushall gitlab "git@gitlab.com:x-bash/${repo}.git"
+        # x git pushall gitcode "git@gitcode.com:x-bash/${repo}.git"
 
     ) 1>"$rp/.${repo}.stdout"
     x:info "Sync to github: ${repo}"
