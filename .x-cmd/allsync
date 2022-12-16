@@ -1,0 +1,12 @@
+
+(
+
+git clone git@gitee:com:x-cmd/yanfa
+cd yanfa
+xws install
+
+x yanfa vstream x0 | while read -r repo; do
+    printf "%s %s\n" "git@gitee.com:x-bash/$repo" "git@github.com:x-bash/$repo" # "git@gitlab.com:x-bash/$repo"
+done | x git sync
+
+)
