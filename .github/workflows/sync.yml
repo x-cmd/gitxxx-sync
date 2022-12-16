@@ -6,7 +6,7 @@ name: Sync All X-Bash Repos
 on: workflow_dispatch
 
 jobs:
-  publisher:
+  SyncBot:
     runs-on: ubuntu-latest
     env:
       ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
