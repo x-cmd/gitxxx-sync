@@ -2,7 +2,7 @@ name: Sync All X-Bash Repos
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *'
+    - cron: '0 * * * *'
 
 jobs:
   SyncBot:
