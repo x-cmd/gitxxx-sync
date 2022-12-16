@@ -1,4 +1,4 @@
-name: Sync All Git Hosting Service
+name: Sync All X-Bash Repos
 # on:
 #   workflow_dispatch:
 #   schedule:
