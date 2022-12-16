@@ -1,9 +1,8 @@
 name: Sync All X-Bash Repos
-# on:
-#   workflow_dispatch:
-#   schedule:
-#     - cron: '0 0-14 * * 1-6'
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 19 * * *'
 
 jobs:
   SyncBot:
