@@ -1,0 +1,6 @@
+
+git clone github.com:x-cmd/yanfa
+cd yanfa
+xws xx x0 | while read -r repo; do
+    x gitb sync "git@gitee.com:x-bash/$repo" "git@github.com:x-bash/$repo"
+done
