@@ -10,6 +10,9 @@ xws xx x0 | {
     )
 }
 
+# xws xx x0 ｜ x job failfast run
+# x job failfast run -- xws xx x0
+
 # xws xx x0 | {
 #     while read -r repo; do
 #         x gitb sync "git@gitee.com:x-bash/$repo" "git@github.com:x-bash/$repo"
