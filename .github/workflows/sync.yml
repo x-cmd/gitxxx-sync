@@ -17,4 +17,4 @@ jobs:
         uses: x-cmd/action@main
         timeout-minutes: 8
         with:
-          code: xws sync1 || exit
+          code: xws backup || exit
