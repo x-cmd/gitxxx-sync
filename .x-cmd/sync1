@@ -4,7 +4,7 @@ cd yanfa
 xws xx x0 | {
     x job failfast init
     while read -r repo; do
-        x job failfast put x gitb sync "git@gitee.com:x-bash/$repo" "git@github.com:x-bash/$repo"
+        x job failfast put x gitb backup "git@gitee.com:x-bash/$repo" "git@github.com:x-bash/$repo"
     done | (
         x job failfast fini
     )
