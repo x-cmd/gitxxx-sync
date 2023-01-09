@@ -1,1 +1,3 @@
-git push origin main
+git push git@gitee.com:x-cmd/gitxxx-sync main
+
+git push git@github.com:x-cmd/gitxxx-sync main
