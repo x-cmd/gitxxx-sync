@@ -17,6 +17,6 @@ xws xx x0 | while read -r r; do
     printf "x-bash/%s\n" "$r"
 done | go
 
-xws xx x-cmd | while read -r r; do
-    printf "x-bash/%s\n" "$r"
+xws x-cmd | while read -r r; do
+    printf "x-cmd/%s\n" "$r"
 done | go
