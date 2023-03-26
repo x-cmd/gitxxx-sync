@@ -1,7 +1,11 @@
 
 git clone git@github.com:x-cmd/yanfa
 cd yanfa
-xws xx x0 | {
+
+{
+    xws xx x0
+    xws x-cmd
+} | {
     x job failfast init
     while read -r repo; do
         # x job failfast put x gitb backup "git@gitee.com:x-bash/$repo" "git@github.com:x-bash/$repo"
