@@ -1,15 +1,21 @@
 
 
 function go(){
+    if [ "$#" -eq 0 ]; then
+        set -- gitee.com
+    fi
+
     x job failfast init
     while read -r owner_repo; do
         # x job failfast put x gitb backup "git@gitee.com:x-bash/$repo" "git@github.com:x-bash/$repo"
-        x job failfast put x gitb backup "git@github.com:$owner_repo" "git@gitee.com:$owner_repo"
+        for i in "$@"; do
+            x job failfast put x gitb backup "git@github.com:$owner_repo" "git@$i:$owner_repo"
+        done
         # TODO: codeup
     done | (
         x job failfast fini
     )
 }
 
-go
+( go "$@"; )
 
