@@ -13,6 +13,8 @@ function go(){
     )
 }
 
+(
+
 xws xx x0 | while read -r r; do
     printf "x-bash/%s\n" "$r"
 done | go
@@ -22,3 +24,5 @@ xws x-cmd | while read -r r; do
 done | go
 
 # sync organization: x-cmd-build, x-cmd-builder, x-cmd-advise, x-cmd-osiso
+
+)
