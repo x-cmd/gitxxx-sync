@@ -1,1 +1,2 @@
-x yanfa vstream x0 | x line 'x-bash/%s' | xws backup
+x yanfa vstream x0 | x line 'x-cmd/%s\n' | xws backup
+
