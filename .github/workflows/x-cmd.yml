@@ -1,4 +1,4 @@
-name: Sync All X-CMD Repos
+name: x-cmd
 on:
   workflow_dispatch:
   schedule:
