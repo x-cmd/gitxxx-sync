@@ -1,5 +1,4 @@
-(
-xws xx x0 | while read -r r; do
+
+x yanfa vstream x0 | while read -r r; do
     printf "x-bash/%s\n" "$r"
 done | xws backup
-)

@@ -1,5 +1,5 @@
 (
-xws x-cmd | while read -r r; do
-    printf "x-cmd/%s\n" "$r"
-done | xws backup
-)
+    x yanfa vstream x-cmd | while read -r r; do
+        printf "x-cmd/%s\n" "$r"
+    done
+) | xws backup
