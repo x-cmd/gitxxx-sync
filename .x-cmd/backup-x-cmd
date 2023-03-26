@@ -1,4 +1,6 @@
 
+# x yanfa vstream x-cmd | xws create_repo_if_unexisted x-cmd
+
 x yanfa vstream x-cmd | awk '{ print "x-cmd/" $1 }' | xws backup
 
 # x yanfa vstream x-cmd | x line wrap x-cmd/ | xws backup
