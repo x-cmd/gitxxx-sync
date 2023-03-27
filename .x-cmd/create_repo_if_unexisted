@@ -15,11 +15,15 @@ gcode_create_repo_if_unexisted(){
     x minus "$(x gcode repo ls "$org")" | x arg1 'x gcode repo create $org/$1'
 }
 
-gt_create_repo_if_unexisted "$@"
+handle(){
+    x yanfa vstream x0          |   "${1}_create_repo_if_unexisted" x-bash
+    x yanfa vstream x-cmd       |   "${1}_create_repo_if_unexisted" x-cmd
+    x gh repo ls x-cmd-osiso    |   "${1}_create_repo_if_unexisted" x-cmd-osiso
+    x gh repo ls x-cmd-build    |   "${1}_create_repo_if_unexisted" x-cmd-build
+    x gh repo ls x-cmd-builder  |   "${1}_create_repo_if_unexisted" x-cmd-builder
+}
 
-# x yanfa vstream x0          |   create_repo_if_unexisted x-bash
-# x yanfa vstream x-cmd       |   create_repo_if_unexisted x-cmd
-# x gh repo ls x-cmd-osiso    |   create_repo_if_unexisted x-cmd-osiso
-# x gh repo ls x-cmd-build    |   create_repo_if_unexisted x-cmd-build
-# x gh repo ls x-cmd-builder  |   create_repo_if_unexisted x-cmd-builder
+handle gt
+handle gcode
+handle glab
 
