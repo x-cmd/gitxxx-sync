@@ -2,17 +2,17 @@
 
 gt_create_repo_if_unexisted(){
     local org="$1"
-    x minus "$(x gt repo ls "$org")" | x prf "$org/\n" | x arg1 'x gt repo create $org/$1'
+    x minus "$(x gt repo ls "$org")" | x arg1 'x gt repo create $org/$1'
 }
 
 gh_create_repo_if_unexisted(){
     local org="$1"
-    x minus "$(x gh repo ls "$org")" | x prf "$org/\n" | x arg1 'x gh repo create $1'
+    x minus "$(x gh repo ls "$org")" | x arg1 'x gh repo create $org/$1'
 }
 
 gcode_create_repo_if_unexisted(){
     local org="$1"
-    x minus "$(x gcode repo ls "$org")" | x prf "$org/\n" | x arg1 'x gcode repo create $1'
+    x minus "$(x gcode repo ls "$org")" | x arg1 'x gcode repo create $org/$1'
 }
 
 gt_create_repo_if_unexisted "$@"
