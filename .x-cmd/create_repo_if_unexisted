@@ -6,7 +6,7 @@ create_repo_if_unexisted(){
     #     x gt repo create "$org/$line"
     # done
 
-    x line minus "$(x gt repo ls "$org")" | x line wrap "$org/" | x gt repo create
+    x minus "$(x gt repo ls "$org")" | x prf "$org/\n" | x gt repo create
 }
 
 create_repo_if_unexisted "$@"
