@@ -1,15 +1,21 @@
 
 
-create_repo_if_unexisted(){
+gt_create_repo_if_unexisted(){
     local org="$1"
-    # x gh repo ls "$org" | x line minus "$(x gt repo ls "$org")" | while read -r line; do
-    #     x gt repo create "$org/$line"
-    # done
-
-    x minus "$(x gt repo ls "$org")" | x prf "$org/\n" | x gt repo create
+    x minus "$(x gt repo ls "$org")" | x prf "$org/\n" | x arg1 'x gt repo create $org/$1'
 }
 
-create_repo_if_unexisted "$@"
+gh_create_repo_if_unexisted(){
+    local org="$1"
+    x minus "$(x gh repo ls "$org")" | x prf "$org/\n" | x arg1 'x gh repo create $1'
+}
+
+gcode_create_repo_if_unexisted(){
+    local org="$1"
+    x minus "$(x gcode repo ls "$org")" | x prf "$org/\n" | x arg1 'x gcode repo create $1'
+}
+
+gt_create_repo_if_unexisted "$@"
 
 # x yanfa vstream x0          |   create_repo_if_unexisted x-bash
 # x yanfa vstream x-cmd       |   create_repo_if_unexisted x-cmd
