@@ -3,4 +3,4 @@
 
 x yanfa vstream x0 | awk '{ print "x-bash/" $1 }' | xws backup # gitee.com gitcode.net gitlab.com
 
-# x yanfa vstream x0 | x prf 'x-bash/%s\n' | xws backup $1
+# x yanfa vstream x0 | x prf 'x-bash/%s\n' | xws backup
