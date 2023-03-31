@@ -1,0 +1,5 @@
+
+# Full scale update in 12 hours
+
+# Only backup update within an hour
+x gh repo ls x-cmd-pkg | x tab 2: | xws backup
