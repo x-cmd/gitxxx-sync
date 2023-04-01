@@ -1,0 +1,22 @@
+name: x-cmd-pkg
+on:
+  workflow_dispatch:
+  schedule:
+    # - cron: '0 0,1,2,3,4,6,7,8,9,10,11,12,13,14 * * *'
+    - cron: '0 */6 * * *'
+
+jobs:
+  SyncBot:
+    runs-on: ubuntu-latest
+    env:
+      ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      git_user: lijunhao
+      git_email: l@x-cmd.com
+      CONCURRENCY: 10
+      ___X_CMD_GHACTION_X: x0
+    steps:
+      - name: main
+        uses: x-cmd/action@main
+        timeout-minutes: 3
+        with:
+          code: xws backup-x-cmd-pkg || exit
