@@ -13,7 +13,7 @@ jobs:
       git_user: lijunhao
       git_email: l@x-cmd.com
       CONCURRENCY: 10
-      ___X_CMD_GHACTION_X: x0
+      ___X_CMD_GHACTION_X: x2
     steps:
       - name: main
         uses: x-cmd/action@main
