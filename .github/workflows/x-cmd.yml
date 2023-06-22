@@ -10,7 +10,7 @@ jobs:
   SyncBot:
     runs-on: ubuntu-latest
     env:
-      ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      ssh_key: ${{ secrets.SSH_PRIVATE_KEY_FOR_SYNC }}
       git_user: lijunhao
       git_email: l@x-cmd.com
       CONCURRENCY: 10
