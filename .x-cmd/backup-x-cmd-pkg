@@ -5,4 +5,4 @@
 # x gh repo ls x-cmd-pkg | x tab 2: | xws backup
 
 x gh repo ls -j x-cmd-pkg
-x gh repo ls -j x-cmd-pkg | x ja tocsv .name .updated_at
+# x gh repo ls -j x-cmd-pkg | x ja tocsv .name .updated_at
