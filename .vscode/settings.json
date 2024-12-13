@@ -47,8 +47,5 @@
             "bold": false,
             "italic": false
         },
-    ],
-    // "editor.tokenColorCustomizations": {
-    //     "comments": "#00ff95af"
-    // }
+    ]
 }
