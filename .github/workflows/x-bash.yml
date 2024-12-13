@@ -23,4 +23,4 @@ jobs:
         uses: x-cmd/action@main
         timeout-minutes: 8
         with:
-          code: xws backup-x-bash || exit
+          code: x ws backup-x-bash || exit

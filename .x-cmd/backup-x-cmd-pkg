@@ -2,7 +2,7 @@
 # Full scale update in 12 hours
 
 # Only backup update within an hour
-# x gh repo ls x-cmd-pkg | x tab 2: | xws backup
+# x gh repo ls x-cmd-pkg | x tab 2: | x ws backup
 
 x gh repo ls -j x-cmd-pkg
 # x gh repo ls -j x-cmd-pkg | x ja tocsv .name .updated_at

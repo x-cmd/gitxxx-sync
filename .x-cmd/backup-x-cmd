@@ -1,8 +1,8 @@
 
-# x yanfa vstream x-cmd | xws create_repo_if_unexisted x-cmd
+# x yanfa vstream x-cmd | x ws create_repo_if_unexisted x-cmd
 
-x yanfa vstream x-cmd | awk '{ print "x-cmd/" $1 }' | sort | uniq | xws backup # gitee.com gitcode.net gitlab.com
+x yanfa vstream x-cmd | awk '{ print "x-cmd/" $1 }' | sort | uniq | x ws backup # gitee.com gitcode.net gitlab.com
 
-# x yanfa vstream x-cmd | x prf "x-cmd/%s\n" | xws backup # gitee.com gitcode.net gitlab.com
+# x yanfa vstream x-cmd | x prf "x-cmd/%s\n" | x ws backup # gitee.com gitcode.net gitlab.com
 
 

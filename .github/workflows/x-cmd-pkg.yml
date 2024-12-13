@@ -20,4 +20,4 @@ jobs:
         uses: x-cmd/action@main
         timeout-minutes: 3
         with:
-          code: xws backup-x-cmd-pkg || exit
+          code: x ws backup-x-cmd-pkg || exit

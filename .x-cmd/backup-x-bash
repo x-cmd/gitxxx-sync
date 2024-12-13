@@ -1,6 +1,6 @@
 
-# x yanfa vstream x0 | xws create_repo_if_unexisted x-bash
+# x yanfa vstream x0 | x ws create_repo_if_unexisted x-bash
 
-x yanfa vstream x0 | awk '{ print "x-bash/" $1 }' | xws backup # gitee.com gitcode.net gitlab.com
+x yanfa vstream x0 | awk '{ print "x-bash/" $1 }' | x ws backup # gitee.com gitcode.net gitlab.com
 
-# x yanfa vstream x0 | x prf 'x-bash/%s\n' | xws backup
+# x yanfa vstream x0 | x prf 'x-bash/%s\n' | x ws backup
