@@ -18,6 +18,6 @@ jobs:
     steps:
       - name: main
         uses: x-cmd/action@main
-        timeout-minutes: 10
+        timeout-minutes: 30
         with:
           code: x ws backup-x-cmd-pkg || exit
