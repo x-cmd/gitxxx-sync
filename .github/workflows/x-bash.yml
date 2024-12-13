@@ -21,6 +21,6 @@ jobs:
     steps:
       - name: main
         uses: x-cmd/action@main
-        timeout-minutes: 8
+        timeout-minutes: 10
         with:
           code: x ws backup-x-bash || exit
