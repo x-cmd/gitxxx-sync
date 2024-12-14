@@ -5,4 +5,6 @@ x yanfa vstream x-cmd | awk '{ print "x-cmd/" $1 }' | sort | uniq | x ws backup 
 
 # x yanfa vstream x-cmd | x prf "x-cmd/%s\n" | x ws backup # gitee.com gitcode.net gitlab.com
 
-
+x ws backup codeberg.org gitee.com <<A
+x-cmd/x-cmd
+A
